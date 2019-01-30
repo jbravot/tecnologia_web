@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
@@ -31,12 +30,14 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'main',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'LabMatec.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -80,9 +81,9 @@ DATABASES = {
     # }
     'default':{
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-             'NAME': 'TECNOLOGIA',
-            'USER': 'admin',
-            'PASSWORD': 'MSIGPROMOXX',
+            'NAME': 'db_web',
+            'USER': 'postgres',
+            'PASSWORD': 'htne37qi',
             'HOST': 'localhost',
 
         }
@@ -111,7 +112,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ES'
+
+TIME_ZONE = 'America/Guayaquil'
+
+DATETIME_INPUT_FORMATS = "%d/%m/%Y %H:%M:%S"
+DATE_INPUT_FORMATS = "%d/%m/%Y"
 
 TIME_ZONE = 'UTC'
 

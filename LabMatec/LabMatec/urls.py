@@ -19,3 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
+
+admin.site.site_header = "LabMatec"
+admin.site.site_title = "LabMatec Portal"
