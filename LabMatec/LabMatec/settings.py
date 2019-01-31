@@ -81,11 +81,10 @@ DATABASES = {
     # }
     'default':{
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'db_web',
-            'USER': 'postgres',
-            'PASSWORD': 'htne37qi',
-            'HOST': 'localhost',
-
+        'NAME': 'TECNOLOGIA',
+        'USER': 'admin',
+        'PASSWORD': 'MSIGPROMOXX',
+        'HOST': 'localhost',
         }
 }
 
