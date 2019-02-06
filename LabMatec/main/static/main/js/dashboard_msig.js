@@ -15,7 +15,7 @@ web: jonathanbravo.com
     Graficos.dayNamesShort = ['Dom','Lun','Mar','Mi\u00E9','Jue','Vie','S\u00e1b'];
 
 
-    Graficos.crearBarra = function(id_container, titulo, series){
+    Graficos.crearBarra = function(titulo, id_container, series){
         Highcharts.chart(id_container, {
             chart: {
                 type: 'column',
@@ -56,7 +56,7 @@ web: jonathanbravo.com
         });
     };
 
-    Graficos.crearPie = function(id_container, titulo, series){
+    Graficos.crearPie = function(titulo, id_container, series){
         Highcharts.chart(id_container, {
             chart: {
                 plotBackgroundColor: null,
@@ -84,7 +84,7 @@ web: jonathanbravo.com
         });
     };
 
-    Graficos.crearTimeLine = function (id_container, jsonData) {
+    Graficos.crearTimeLine = function (titulo, id_container, jsonData) {
         Highcharts.setOptions({
             lang: {
                 months: Graficos.monthNames,
@@ -100,7 +100,7 @@ web: jonathanbravo.com
                     spacingRight: 20
                 },
                 title: {
-                    text: null
+                    text: titulo
                 },
                 subtitle: {
                     text: document.ontouchstart === undefined ?

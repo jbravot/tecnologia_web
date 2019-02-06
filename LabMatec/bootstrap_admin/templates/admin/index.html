@@ -9,56 +9,73 @@
 
 {# {% block breadcrumbs %}{% endblock %} #}
 
+{% block breadcrumbs %}{% endblock %}
+
 {% block content %}
 <div id="content-main">
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="panel panel-primary panel-blue">
-            <!-- Default panel contents -->
-            <div class="panel-heading">
-                <i class="fa fa-usd"></i> GRAFICO
-                <span id="ventas-refresh"class="btn-dash pull-right">
-                    <i class="fa fa-refresh fa-spin"></i>
+    <div class="row">
+        <div class="col-xs-12"></div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-aqua">
+                    <i class="fa fa-users"></i>
                 </span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Clientes</span>
+                    <span class="info-box-number">45</span>
+                </div>
             </div>
-            <div class="panel-body">
-                <div id="l-chart" class="chart"></div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-red">
+                    <i class="fa fa-bar-chart"></i>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Solicitudes</span>
+                    <span class="info-box-number">50</span>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix visible-sm-block"></div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-yellow">
+                    <i class="fa fa-usd"></i>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Proformado</span>
+                    <span class="info-box-number">760,00</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="info-box">
+                <span class="info-box-icon bg-green">
+                    <i class="fa fa-usd"></i>
+                </span>
+                <div class="info-box-content">
+                    <span class="info-box-text">Facturado</span>
+                    <span class="info-box-number">2,000</span>
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-6">
-        <div class="panel panel-primary panel-blue">
-            <!-- Default panel contents -->
-            <div class="panel-heading">
-                <i class="fa fa-usd"></i> GRAFICO
-                <span id="ventas-refresh"class="btn-dash pull-right">
-                    <i class="fa fa-refresh fa-spin"></i>
-                </span>
-            </div>
-            <div class="panel-body">
-                <div id="ventas-chart" class="chart"></div>
-            </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div id="l-chart" class="chart"></div>
+        </div>
+
+        <div class="col-md-6">
+            <div id="ventas-chart" class="chart"></div>
+        </div>
+
+        <div class="col-md-4">
+            <div id="2-ventas-chart" class="chart"></div>
         </div>
     </div>
-    <div class="col-md-6">
-        <div class="panel panel-primary panel-blue">
-            <!-- Default panel contents -->
-            <div class="panel-heading">
-                <i class="fa fa-usd"></i> GRAFICO
-                <span id="ventas-refresh"class="btn-dash pull-right">
-                    <i class="fa fa-refresh fa-spin"></i>
-                </span>
-            </div>
-            <div class="panel-body">
-                <div id="2-ventas-chart" class="chart"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 </div>
 {% endblock %}
@@ -128,12 +145,12 @@
                         name: 'USD to EUR',
                         data: data
                     }];
-                    Graficos.crearTimeLine("l-chart", data);
+                    Graficos.crearTimeLine("Proformado vs Facturado", "l-chart", data);
             }).error(function() { alert("Error al Cargar los Datos"); });
 
 
-            Graficos.crearBarra("ventas-chart", '', data);
-            Graficos.crearPie("2-ventas-chart", '', data2);
+            Graficos.crearBarra("Proformado vs Facturado", "ventas-chart", data);
+            Graficos.crearPie("Proformado vs Facturado", "2-ventas-chart", data2);
         });
     </script>
 {% endblock js %}
