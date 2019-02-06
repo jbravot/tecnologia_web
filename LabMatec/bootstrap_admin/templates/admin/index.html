@@ -12,9 +12,128 @@
 {% block content %}
 <div id="content-main">
 
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary panel-blue">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <i class="fa fa-usd"></i> GRAFICO
+                <span id="ventas-refresh"class="btn-dash pull-right">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </span>
+            </div>
+            <div class="panel-body">
+                <div id="l-chart" class="chart"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-primary panel-blue">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <i class="fa fa-usd"></i> GRAFICO
+                <span id="ventas-refresh"class="btn-dash pull-right">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </span>
+            </div>
+            <div class="panel-body">
+                <div id="ventas-chart" class="chart"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="panel panel-primary panel-blue">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                <i class="fa fa-usd"></i> GRAFICO
+                <span id="ventas-refresh"class="btn-dash pull-right">
+                    <i class="fa fa-refresh fa-spin"></i>
+                </span>
+            </div>
+            <div class="panel-body">
+                <div id="2-ventas-chart" class="chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 </div>
 {% endblock %}
 
 {% block js %}
-  <script src="{% static "bootstrap_admin/js/dashboard.js" %}"></script>
+    <script src="https://code.highcharts.com/highcharts.src.js"></script>
+    <script src="{% static "main/js/dashboard_msig.js" %}"></script>
+    <script>
+        var data = [{
+            name: 'Tokyo',
+            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+        }, {
+            name: 'New York',
+            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+        }, {
+            name: 'London',
+            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+        }, {
+            name: 'Berlin',
+            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+        }];
+
+        var data2 = [{
+            name: 'Brands',
+            colorByPoint: true,
+            data: [{
+                name: 'Chrome',
+                y: 61.41,
+                sliced: true,
+                selected: true
+            }, {
+                name: 'Internet Explorer',
+                y: 11.84
+            }, {
+                name: 'Firefox',
+                y: 10.85
+            }, {
+                name: 'Edge',
+                y: 4.67
+            }, {
+                name: 'Safari',
+                y: 4.18
+            }, {
+                name: 'Sogou Explorer',
+                y: 1.64
+            }, {
+                name: 'Opera',
+                y: 1.6
+            }, {
+                name: 'QQ',
+                y: 1.2
+            }, {
+                name: 'Other',
+                y: 2.61
+            }]
+        }];
+        jQuery( document ).ready(function($) {
+            $.getJSON(
+                'https://cdn.rawgit.com/highcharts/highcharts/057b672172ccc6c08fe7dbb27fc17ebca3f5b770/samples/data/usdeur.json',
+                function(data) {
+                    data = [{
+                        type: 'area',
+                        name: 'USD to EUR',
+                        data: data
+                    }];
+                    Graficos.crearTimeLine("l-chart", data);
+            }).error(function() { alert("Error al Cargar los Datos"); });
+
+
+            Graficos.crearBarra("ventas-chart", '', data);
+            Graficos.crearPie("2-ventas-chart", '', data2);
+        });
+    </script>
 {% endblock js %}

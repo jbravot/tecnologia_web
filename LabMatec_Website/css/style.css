@@ -10,6 +10,22 @@
 * 	Template Style 
 *
 * ======================================================= */
+
+.google-maps {
+  position: relative;
+  padding-bottom: 75%; 
+  height: 0;
+  overflow: hidden;
+  }
+  .google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  }
+
+  
 body {
   font-family: "Work Sans", Arial, sans-serif;
   font-weight: 400;
@@ -89,7 +105,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 @media screen and (max-width: 768px) {
   .qbootstrap-nav .top-menu {
-    padding: 20px 0;
+    padding: 10px 0;
   }
 }
 .qbootstrap-nav #qbootstrap-logo {
@@ -203,7 +219,7 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #000;
 }
 .qbootstrap-nav ul li.btn-cta a {
-  padding: 30px 0px !important;
+  padding: 10px 0px !important;
   color: #fff;
 }
 .qbootstrap-nav ul li.btn-cta a span {
@@ -305,7 +321,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-size: 24px;
 }
 #qbootstrap-hero .btn.btn-primary {
-  padding: 14px 30px !important;
+  padding: 14px 20px !important;
 }
 #qbootstrap-hero .flexslider {
   border: none;
@@ -1410,5 +1426,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .js .animate-box {
   opacity: 0;
 }
+
+
 
 /*# sourceMappingURL=style.css.map */
