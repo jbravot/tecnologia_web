@@ -87,7 +87,7 @@ DATABASES = {
         'PASSWORD': 'MSIGPROMOXX',
         'HOST': 'localhost',
         }
-}
+}x
 
 
 # Password validation

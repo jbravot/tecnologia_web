@@ -1,0 +1,13 @@
+muestra las proformas emitidas con sus valores y si esq se convirtio en ot, si no esta null
+
+db.Data.group(
+   {
+     key: { proforma:1, fecha_creacion_proforma: 1,orden_de_trabajo: { $ifNull: [ "$orden_de_trabajo", "Unspecified" ] } },
+     cond: { fecha_creacion_proforma:/^2018/ ,total_proforma: { $gt: 0 }},
+     reduce: function( curr, result ) {
+                 result.total_proforma += curr.total_proforma;
+
+             },
+     initial: { total_proforma : 0 }
+   }
+)
